@@ -48,6 +48,11 @@ checkMagisk() {
             busyboxPath=/data/adb/magisk
             return 1
             ;;
+        '25'[0-9a-zA-Z]*) # Version 25.x
+            hosts=/data/adb/modules/hosts/system/etc/hosts
+            busyboxPath=/data/adb/magisk
+            return 1
+            ;;
         *) # Canary?
             if ( [ ! -f /data/adb/modules/hosts/system/etc/hosts ] && [ ! -d /data/adb/magisk ] ); then
                 echo -e "\n >Version: $printMagiskVersion - not supported.\n > Exiting..."
